@@ -1,18 +1,27 @@
-x = int(raw_input("Enter the value for x: "))
-print x
-y = int(raw_input("Enter the value for y: "))
-print y
+loop = 1
 
-operation = raw_input("Choose math operation (+, -, *, /: ")
-print operation
+while loop == 1:
 
-if operation == "+":
-    print x + y
-elif operation == "-":
-    print x - y
-elif operation == "*":
-    print x * y
-elif operation == "/":
-    print x / y
-else:
-    print "You did not provide the correct math operation."
+    print "Welcome to the Bella-Calculator!"
+    x = int(raw_input("Enter your first number: "))
+    print "You've entered " + str(x) + " " + "as your first number."
+    y = int(raw_input("Enter your second number: "))
+    print "You've entered " + str(y) + " as your second number."
+
+    operation = raw_input("Choose math operation (+, -, *, /: ")
+    print "You've chosen " + operation + "."
+
+    if y == 0 and operation == "/":
+        print "You can not divide by 0!"
+    elif operation == "+":
+        print "Your result is " + str(x + y) + "."
+    elif operation == "-":
+        print "Your result is " + str(x - y) + "."
+    elif operation == "*":
+        print "Your result is " + str(x * y) + "."
+    elif operation == "/":
+        print "Your result is " + str(x / y) + "."
+    else:
+        print "You did not choose a math operation."
+
+    print "\n"
