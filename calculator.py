@@ -1,15 +1,33 @@
 loop = 1
+print "Welcome to the Bella-Calculator!"
+print " "
+print " "
 
-while loop == 1:
+while True:
+    while True:
+        try:
+            x = float(raw_input("Enter your first number: "))
+            print "You've entered " + str(x) + " " + "as your first number."
+            break
+        except ValueError:
+            print "You did not enter a number! You entered " + str(x) + "."
 
-    print "Welcome to the Bella-Calculator!"
-    x = int(raw_input("Enter your first number: "))
-    print "You've entered " + str(x) + " " + "as your first number."
-    y = int(raw_input("Enter your second number: "))
-    print "You've entered " + str(y) + " as your second number."
+    while True:
+        try:
+            y = float(raw_input("Enter your second number: "))
+            print "You've entered " + str(y) + " as your second number."
+            break
+        except ValueError:
+            print "You did not enter a number! You entered " + str(y) + "."
 
-    operation = raw_input("Choose math operation (+, -, *, /: ")
-    print "You've chosen " + operation + "."
+
+    while True:
+        operation = raw_input("Choose math operation (+, -, *, /):")
+        print "You've chosen " + operation + "."
+        if operation in ["+", "-", "*", "/"]:
+            break
+        else:
+            print "You did not enter a correct operation symbol! You've entered " + operation + "."
 
     if y == 0 and operation == "/":
         print "You can not divide by 0!"
@@ -24,4 +42,8 @@ while loop == 1:
     else:
         print "You did not choose a math operation."
 
-    print "\n"
+    print " "
+    print " "
+    entry = raw_input("Want to use the Bella-Caluclator one more time? (any button to continue, n to Exit)")
+    if entry == "n":
+        break
