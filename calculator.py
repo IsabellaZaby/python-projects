@@ -1,4 +1,3 @@
-loop = 1
 print "Welcome to the Bella-Calculator!"
 print " "
 print " "
