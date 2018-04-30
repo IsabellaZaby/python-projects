@@ -2,6 +2,9 @@ print "Welcome to the Bella-Calculator!"
 print " "
 print " "
 
+x = None
+y = None
+operation = None
 while True:
     while True:
         try:
@@ -9,7 +12,7 @@ while True:
             print "You've entered " + str(x) + " " + "as your first number."
             break
         except ValueError:
-            print "You did not enter a number! You entered " + str(x) + "."
+            print "You did not enter a number!"
 
     while True:
         try:
@@ -17,7 +20,7 @@ while True:
             print "You've entered " + str(y) + " as your second number."
             break
         except ValueError:
-            print "You did not enter a number! You entered " + str(y) + "."
+            print "You did not enter a number!"
 
 
     while True:
@@ -26,7 +29,7 @@ while True:
         if operation in ["+", "-", "*", "/"]:
             break
         else:
-            print "You did not enter a correct operation symbol! You've entered " + operation + "."
+            print "You did not enter a correct operation symbol!"
 
     if y == 0 and operation == "/":
         print "You can not divide by 0!"
