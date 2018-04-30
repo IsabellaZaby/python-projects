@@ -45,4 +45,5 @@ while True:
     print " "
     entry = raw_input("Want to use the Bella-Caluclator one more time? (any button to continue, n to Exit)")
     if entry == "n":
+        print "Thank you for choosing Bella-Calculator!"
         break
