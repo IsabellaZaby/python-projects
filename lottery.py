@@ -15,15 +15,15 @@ while True:
 
 
     def random_numbers(quantity):
-        num_list = []
+        number_list = []
         while True:
-            if len(num_list) == quantity:
+            if len(number_list) == quantity:
                 break
             ra_int = random.randint(1, 50)
-            if ra_int not in num_list:
-                num_list.append(ra_int)
+            if ra_int not in number_list:
+                number_list.append(ra_int)
 
-        return num_list
+        return number_list
 
     print random_numbers(amount)
 
