@@ -79,3 +79,6 @@ def main():
         else:
             print "You did not enter a, b, c, d or e!"
             continue
+
+if __name__ == "__main__":
+    main()
