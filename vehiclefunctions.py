@@ -35,6 +35,15 @@ def edit_kilometers(carlist):
     selected_car.kilometers_so_far = new_kilometer
     print "The " + selected_car.get_brand_model() + " has " + str(selected_car.kilometers_so_far) + " as its new mileage."
 
+def edit_date(carlist):
+    for index, car in enumerate(carlist):
+        print "ID " + str(index) + ": " + car.get_brand_model()
+    selected_index = raw_input("Type in ID-Number to edit service-date: ")
+    selected_car = carlist[int(selected_index)]
+    new_date = raw_input("Type in new service-date: ")
+    selected_car.service_date = new_date
+    print "The " + selected_car.get_brand_model() + " has " + str(selected_car.service_date) + " as its new service date."
+
 def export_list(carlist):
     with open("carlist.txt", "w+") as carlist_file:
         print "Your cars are:"
@@ -59,11 +68,12 @@ def main():
         print "a) See all your cars"
         print "b) Add a new car"
         print "c) Edit kilometers"
-        print "d) Export list"
-        print "e) Quit program"
+        print "d) Edit service date"
+        print "e) Export list"
+        print "f) Quit program"
         print ""  # empty line
 
-        selected_option = raw_input("Enter a, b, c, d or e: ")
+        selected_option = raw_input("Enter a, b, c, d, e or f: ")
         if selected_option.lower() == "a":
             list_cars(carlist)
         elif selected_option.lower() == "b":
@@ -71,13 +81,15 @@ def main():
         elif selected_option.lower() == "c":
             edit_kilometers(carlist)
         elif selected_option.lower() == "d":
-            export_list(carlist)
+            edit_date(carlist)
         elif selected_option.lower() == "e":
+            export_list(carlist)
+        elif selected_option.lower() == "f":
             print "Thank you for using the Bella-Vehicle-Manager!"
             print "="*30
             break
         else:
-            print "You did not enter a, b, c, d or e!"
+            print "You did not enter a, b, c, d, e or f!"
             continue
 
 if __name__ == "__main__":
