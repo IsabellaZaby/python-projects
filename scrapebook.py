@@ -34,6 +34,7 @@ for link in soup.findAll("a"):
 
 csv_file.write("First name,Last name,Email,City\n")
 for person in persons:
+    print "- First Name: %s, Last Name: %s, Email: %s, City: %s" % (person.first_name, person.last_name, person.email, person.city)
     csv_file.write("%s,%s,%s,%s\n" % (person.first_name, person.last_name, person.email, person.city))
 
 csv_file.close()
