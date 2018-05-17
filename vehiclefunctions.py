@@ -45,12 +45,12 @@ def edit_date(carlist):
     print "The " + selected_car.get_brand_model() + " has " + str(selected_car.service_date) + " as its new service date."
 
 def export_list(carlist):
-    with open("carlist.txt", "w+") as carlist_file:
+    with open("carlist.csv", "w+") as carlist_file:
         print "Your cars are:"
-        carlist_file.write("Cars:\n")
+        carlist_file.write("Cars:\nBrand,Model,Kilometers,Service-date\n")
         for car in carlist:
             print "-" + " Brand: " + car.brand + "," + " Model: "+ car.model + "," + " Kilometers: "+ str(car.kilometers_so_far) + "," + " Servicedate: " + car.service_date
-            carlist_file.write("-" + "Brand: " + car.brand + "," + " Model: "+ car.model + "," + " Kilometers: "+ str(car.kilometers_so_far) + "," + " Servicedate: " + car.service_date + "\n")
+            carlist_file.write("%s,%s,%s,%s\n" % (car.brand,car.model,car.kilometers_so_far,car.service_date))
 
 def main():
     car_one = Vehicles(brand="Mercedes", model="A-Klasse", kilometers_so_far=250000, service_date="12.01.2019")
@@ -71,7 +71,7 @@ def main():
         print "d) Edit service date"
         print "e) Export list"
         print "f) Quit program"
-        print ""  # empty line
+        print " "
 
         selected_option = raw_input("Enter a, b, c, d, e or f: ")
         if selected_option.lower() == "a":
