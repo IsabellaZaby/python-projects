@@ -33,23 +33,27 @@ class MainHandler(BaseHandler):
         return self.render_template("hello.html")
 
     def post(self):
-        number_one = float(self.request.get("number_one"))
-        number_two = float(self.request.get("number_second"))
+        number_one = self.request.get("number_one")
+        number_two = self.request.get("number_second")
         operator = self.request.get("operator")
 
         result = None
-
-        if operator == "addition":
-            result = number_one + number_two
-        elif operator == "subtraction":
-            result = number_one - number_two
-        elif operator == "multiplication":
-            result = number_one * number_two
-        elif operator == "division":
-            try:
-                result = number_one / number_two
-            except ZeroDivisionError:
-                return self.write("You can not divide by 0!")
+        try:
+            number_one = float(number_one)
+            number_two = float(number_two)
+            if operator == "addition":
+                result = number_one + number_two
+            elif operator == "subtraction":
+                result = number_one - number_two
+            elif operator == "multiplication":
+                result = number_one * number_two
+            elif operator == "division":
+                try:
+                    result = number_one / number_two
+                except ZeroDivisionError:
+                    return self.write("You can not divide by 0!")
+        except ValueError:
+            return self.write("You need to enter numbers!")
 
 
         self.write("Result is %s." % result)
